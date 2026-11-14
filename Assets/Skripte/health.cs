@@ -1,9 +1,13 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class health : MonoBehaviour
 {
     public int maxHealth=3;
     private int currentHealth;
+    public Transform start;
+    public Transform playertrans;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -14,7 +18,10 @@ public class health : MonoBehaviour
     {
         
     }
-
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        CheckForDamage(collision.gameObject);
+    }
     void CheckForDamage(GameObject obj)
     {
         if (obj.layer == LayerMask.NameToLayer("Damage"))
@@ -26,6 +33,10 @@ public class health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        Debug.Log("šteta");
+        playertrans.position = start.position;
+
+
         if (currentHealth <= 0)
         {
             Die();
@@ -34,7 +45,7 @@ public class health : MonoBehaviour
 
     void Die()
     {
-
+        Debug.Log("smrt");
     }
 
 
