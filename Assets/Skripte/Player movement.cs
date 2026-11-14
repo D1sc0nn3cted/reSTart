@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -23,8 +24,10 @@ public class Playermovement : MonoBehaviour
     private Animator animator;
     private float moveinput;
     private bool isgrounded;
+    private float dashTime;
     private bool isright;
     private bool isleft;
+    private bool isDashing = false;
     private bool canDash = true;
 
 
@@ -45,6 +48,14 @@ public class Playermovement : MonoBehaviour
         FlipSprite();
         HandleJump();
         HandleDash();
+        if (isDashing)
+        {
+            dashTime -= Time.deltaTime;
+            if (dashTime <= 0f)
+            {
+                isDashing = false;
+            }
+        }
     }
     private void FixedUpdate()
     {
@@ -65,8 +76,8 @@ public class Playermovement : MonoBehaviour
         
     }
     void Move(){
-        rb.linearVelocity = new Vector2(moveinput * movementspeed, rb.linearVelocityY);
-
+        if (!isDashing)
+            rb.linearVelocity = new Vector2(moveinput * movementspeed, rb.linearVelocityY);
     }
     void FlipSprite()
     {
@@ -120,15 +131,18 @@ public class Playermovement : MonoBehaviour
     
     void Dash()
     {
-            rb.linearVelocityX = dashforce;
+        rb.linearVelocityX = rb.linearVelocityX + moveinput * dashforce;
+        Debug.Log("Dash");
+
     }
     void HandleDash()
     {
-        if (Keyboard.current.qKey.wasPressedThisFrame)
+        if (moveinput != 0 && Keyboard.current.shiftKey.wasPressedThisFrame && canDash)
         {
             Dash();
             canDash = false;
             Invoke("ResetDash", dashcools);
+            Debug.Log("hDash");
         }
             
 
@@ -136,5 +150,6 @@ public class Playermovement : MonoBehaviour
     void ResetDash()
     {
         canDash = true;
+        Debug.Log("RDash");
     }
 }
