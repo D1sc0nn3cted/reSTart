@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class health : MonoBehaviour
 {
     public int maxHealth=3;
-    private int currentHealth;
+    public int currentHealth;
     public Transform start;
     public Transform playertrans;
 
