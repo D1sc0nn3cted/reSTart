@@ -16,6 +16,7 @@ public class Playermovement : MonoBehaviour
     public float jumpgravity = 2f;
     public Transform lcheck;
     public Transform rcheck;
+    public float dashDuration = 0.15f;
 
     public float sidecheckradius = 0.2f;
     public LayerMask groundlayer;
@@ -133,6 +134,7 @@ public class Playermovement : MonoBehaviour
     {
         rb.linearVelocityX = rb.linearVelocityX + moveinput * dashforce;
         Debug.Log("Dash");
+        isDashing = true;
 
     }
     void HandleDash()
@@ -141,6 +143,7 @@ public class Playermovement : MonoBehaviour
         {
             Dash();
             canDash = false;
+            dashTime = dashDuration;
             Invoke("ResetDash", dashcools);
             Debug.Log("hDash");
         }
