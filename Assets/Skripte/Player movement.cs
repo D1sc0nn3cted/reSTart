@@ -82,9 +82,9 @@ public class Playermovement : MonoBehaviour
     }
     void FlipSprite()
     {
-        if (moveinput < 0)
+        if (moveinput > 0)
             transform.localScale = new Vector3(scale, scale, scale);
-        else if (moveinput > 0)
+        else if (moveinput < 0)
             transform.localScale = new Vector3(scale * -1, scale, scale);
         
     }
@@ -104,16 +104,25 @@ public class Playermovement : MonoBehaviour
         isgrounded = Physics2D.OverlapCircle(groundcheck.position, groundcheckradius, groundlayer);
     }
     void updateanimation()
+        
     {
+        if (isDashing)
+            animator.Play("Dash");
+
+
         if (!isgrounded)
         {
-            if (rb.linearVelocityY > 0)
+            if (rb.linearVelocityY > 0 && !isDashing)
                 animator.Play("Jump");
             else
                 animator.Play("Fall");
         }
         else if (moveinput != 0)
+        {
             animator.Play("Run");
+            Debug.Log("runanim");
+        }
+            
         else
             animator.Play("Idle");
 
