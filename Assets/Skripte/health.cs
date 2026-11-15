@@ -11,6 +11,7 @@ public class health : MonoBehaviour
     public AudioClip hurtClip;
     public AudioClip deathClip;
     private AudioSource audioSource;
+    public int sind;
 
 
     void Start()
@@ -57,6 +58,7 @@ public class health : MonoBehaviour
         Debug.Log("smrt");
         
         audioSource.PlayOneShot(deathClip);
+        SceneManager.LoadScene(sind);
     }
     void tp()
     {

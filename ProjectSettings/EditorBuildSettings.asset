@@ -5,9 +5,42 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Kova/level 1.unity
+    guid: a65bd2707964e5b43ba43a04d5c65dac
+  - enabled: 1
+    path: Assets/Kova/level 2.unity
+    guid: cd9a35909179aad4184229d33e69bafb
+  - enabled: 1
+    path: Assets/Kova/level 3.unity
+    guid: 63d4a8d33876b8148bb8c5488ba642df
+  - enabled: 1
+    path: Assets/Kova/level 4.unity
+    guid: 90594e41bf37d194180e26b72211e92c
+  - enabled: 1
+    path: Assets/Kova/level 5.unity
+    guid: eaddc491712bc2d4084dcbbcb1f46255
+  - enabled: 1
+    path: Assets/Kova/level 6.unity
+    guid: 475a0895ab9c7a749beb3966ff2392d2
+  - enabled: 1
+    path: Assets/Kova/Death 1.unity
+    guid: d515ead307dc0b3448e42e47be0fb54e
+  - enabled: 1
+    path: Assets/Kova/Death 2.unity
+    guid: 02543983c2530cc408b7801ebc15f5b6
+  - enabled: 1
+    path: Assets/Kova/Death 3.unity
+    guid: 05ead4a0a6103cc4eb7634c25f0108a8
+  - enabled: 1
+    path: Assets/Kova/Death 4.unity
+    guid: fa0fd2bd5b52f3048963d9832ff04ca1
+  - enabled: 1
+    path: Assets/Kova/Death 5.unity
+    guid: e278d1cc771eade4fbf59ca89048b790
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

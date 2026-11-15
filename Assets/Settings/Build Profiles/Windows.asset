@@ -23,9 +23,39 @@ MonoBehaviour:
   m_OverrideGlobalSceneList: 1
   m_Scenes:
   - m_enabled: 1
+    m_path: Assets/Kova/level 1.unity
+    m_guid: a65bd2707964e5b43ba43a04d5c65dac
+  - m_enabled: 1
+    m_path: Assets/Kova/level 2.unity
+    m_guid: cd9a35909179aad4184229d33e69bafb
+  - m_enabled: 1
+    m_path: Assets/Kova/level 3.unity
+    m_guid: 63d4a8d33876b8148bb8c5488ba642df
+  - m_enabled: 1
+    m_path: Assets/Kova/level 4.unity
+    m_guid: 90594e41bf37d194180e26b72211e92c
+  - m_enabled: 1
+    m_path: Assets/Kova/level 5.unity
+    m_guid: eaddc491712bc2d4084dcbbcb1f46255
+  - m_enabled: 1
+    m_path: Assets/Kova/Death 1.unity
+    m_guid: d515ead307dc0b3448e42e47be0fb54e
+  - m_enabled: 1
+    m_path: Assets/Kova/Death 2.unity
+    m_guid: 02543983c2530cc408b7801ebc15f5b6
+  - m_enabled: 1
+    m_path: Assets/Kova/Death 3.unity
+    m_guid: 05ead4a0a6103cc4eb7634c25f0108a8
+  - m_enabled: 1
+    m_path: Assets/Kova/Death 4.unity
+    m_guid: fa0fd2bd5b52f3048963d9832ff04ca1
+  - m_enabled: 1
+    m_path: Assets/Kova/Death 5.unity
+    m_guid: e278d1cc771eade4fbf59ca89048b790
+  - m_enabled: 0
     m_path: Assets/Scenes/SampleScene.unity
     m_guid: 8c9cfa26abfee488c85f1582747f6a02
-  - m_enabled: 1
+  - m_enabled: 0
     m_path: Assets/Scenes/Death.unity
     m_guid: 69081093d77d8f046b8b7b7141139f2f
   m_HasScriptingDefines: 0
