@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -8650827585287920439}
   - component: {fileID: -2093783450911468510}
   - component: {fileID: 1644342127323617842}
+  - component: {fileID: 539786584348152866}
   m_Layer: 7
   m_Name: Circle
   m_TagString: Untagged
@@ -170,3 +171,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc207ad24692eae479bea783637cab04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!95 &539786584348152866
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6232741173918481665}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea2f5ccca3d76ab448622ef2159e2668, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
