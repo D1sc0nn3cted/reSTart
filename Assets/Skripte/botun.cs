@@ -12,7 +12,7 @@ public class botun : MonoBehaviour
     private BoxCollider2D closecolider;
     private Animator butonan;
     private bool activated = false;
-
+    private AudioSource audioSource;
     void Start()
     {
         openanim = dooropen.GetComponent<Animator>();
@@ -20,6 +20,7 @@ public class botun : MonoBehaviour
         opencolider = dooropen.GetComponent<BoxCollider2D>();
         closecolider = doorclose.GetComponent<BoxCollider2D>();
         butonan = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
     
     private void OnCollisionEnter2D(Collision2D collision)
@@ -34,6 +35,7 @@ public class botun : MonoBehaviour
             closeanim.Play("Close");
             closecolider.enabled = true;
             activated = true;
+            audioSource.Play();
 
         }
     }

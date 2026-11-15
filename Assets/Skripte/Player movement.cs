@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 
 public class Playermovement : MonoBehaviour
@@ -30,15 +31,25 @@ public class Playermovement : MonoBehaviour
     private bool isleft;
     private bool isDashing = false;
     private bool canDash = true;
-
-
-
+    public GameObject shieldPrefab;
+    private float shieldTime;
+    private bool isShielding = false;
+    private bool canShield = true;
+    public float shieldcools = 0.2f;
+    public float shieldDuration = 0.3f;
+    private GameObject activeshield;
+    private AudioSource audioSource;
+    public AudioClip jumpClip;
+    public AudioClip runClip;
+    public AudioClip dashClip;
+    public AudioClip shieldClip;
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     
@@ -57,6 +68,15 @@ public class Playermovement : MonoBehaviour
                 isDashing = false;
             }
         }
+        if (isShielding)
+        {
+            shieldTime -= Time.deltaTime;
+            if (shieldTime <= 0f)
+            {
+                isShielding = false;
+            }
+        }
+        Handleshield();
     }
     private void FixedUpdate()
     {
@@ -98,6 +118,7 @@ public class Playermovement : MonoBehaviour
     void Jump()
     {
         rb.linearVelocityY = jumpforce;
+        audioSource.PlayOneShot(jumpClip);
     }
     void CheckGround()
     {
@@ -121,6 +142,8 @@ public class Playermovement : MonoBehaviour
         {
             animator.Play("Run");
             Debug.Log("runanim");
+            
+
         }
             
         else
@@ -144,11 +167,16 @@ public class Playermovement : MonoBehaviour
         rb.linearVelocityX = rb.linearVelocityX + moveinput * dashforce;
         Debug.Log("Dash");
         isDashing = true;
+        if (audioSource != null)
+        {
+            
+            audioSource.PlayOneShot(dashClip);
+        }
 
     }
     void HandleDash()
     {
-        if (moveinput != 0 && Keyboard.current.shiftKey.wasPressedThisFrame && canDash)
+        if (moveinput != 0 && Mouse.current.leftButton.wasPressedThisFrame && canDash)
         {
             Dash();
             canDash = false;
@@ -163,5 +191,26 @@ public class Playermovement : MonoBehaviour
     {
         canDash = true;
         Debug.Log("RDash");
+    }
+    void Handleshield()
+    {
+        if (Keyboard.current.shiftKey.wasPressedThisFrame && canShield && !isDashing)
+        {
+            shield();
+            canShield = false;
+            shieldTime = shieldDuration;
+            Invoke("ResetShield", shieldcools);
+        }
+    }
+    void shield()
+    {
+        isShielding = true;
+        audioSource.PlayOneShot(shieldClip);
+        activeshield = Instantiate(shieldPrefab, transform.localPosition, Quaternion.identity);
+        Destroy(activeshield, shieldDuration);
+    }
+    void ResetShield()
+    {
+        canShield = true;
     }
 }
