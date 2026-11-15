@@ -29,7 +29,7 @@ public class Playermovement : MonoBehaviour
     private float dashTime;
     private bool isright;
     private bool isleft;
-    private bool isDashing = false;
+    public bool isDashing = false;
     private bool canDash = true;
     public GameObject shieldPrefab;
     private float shieldTime;

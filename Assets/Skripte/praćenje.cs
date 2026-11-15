@@ -2,13 +2,15 @@ using UnityEngine;
 
 public class praćenje : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     public float movespeed = 10f;
     private Vector2 targetposition;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
         targetposition = player.GetComponent<Transform>().position;
+        
     }
 
     // Update is called once per frame
